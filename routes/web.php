@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-Route::get('/cadastrar-produto',function(Request $request){
+Route::post('/cadastrar-produto',function(Request $request){
     //dd($request->all());
     Produto::create([
 
@@ -29,4 +29,22 @@ Route::get('/cadastrar-produto',function(Request $request){
         'estoque' => $request->estoque
     ]);
     echo "produto criado com sucesso";
+});
+
+Route::get('listar-produto/(id)', function($id){
+    $produto = Produto::find($id);
+    return view('listar', ['produto' => $produto]);
+});
+
+Route::post('/editar-produto/(id)', function(Request $request, $id){
+
+    $produto = Produto::find($id);
+
+    $produto->update([
+        'nome' => $request->nome,
+        'valor' => $request->valor,
+        'estoque' => $request->estoque
+    ]);
+
+    echo "Produto EDITADO com sucesso!";
 });
