@@ -31,12 +31,12 @@ Route::post('/cadastrar-produto',function(Request $request){
     echo "produto criado com sucesso";
 });
 
-Route::get('listar-produto/(id)', function($id){
+Route::get('listar-produto/{id}', function($id){
     $produto = Produto::find($id);
     return view('listar', ['produto' => $produto]);
 });
 
-Route::post('/editar-produto/(id)', function(Request $request, $id){
+Route::post('/editar-produto/{id}', function(Request $request, $id){
 
     $produto = Produto::find($id);
 
@@ -47,4 +47,9 @@ Route::post('/editar-produto/(id)', function(Request $request, $id){
     ]);
 
     echo "Produto EDITADO com sucesso!";
+});
+
+Route::get('/editar-produto/{id}', function($id){
+    $prodtuto = Produto::find($id);
+    return view('editar',['produto' => $produto]);
 });
