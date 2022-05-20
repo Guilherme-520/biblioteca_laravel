@@ -19,6 +19,12 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('inicio');
 });
+Route::get('/cadastrar', function () {
+    return view('inicio');
+});
+Route::get('/menu', function () {
+    return view('menu');
+});
 
 Route::post('/cadastrar-produto',function(Request $request){
     //dd($request->all());
@@ -36,7 +42,14 @@ Route::get('listar-produto/{id}', function($id){
     return view('listar', ['produto' => $produto]);
 });
 
+Route::get('/editar-produto/{id}', function(Request $request, $id){
+    //dd(Produto::find($id)); //debug and die
+    $produto = Produto::find($id);
+    return view('editar',['produto' => $produto]);
+});
+
 Route::post('/editar-produto/{id}', function(Request $request, $id){
+    //dd($request->all());
 
     $produto = Produto::find($id);
 
@@ -46,10 +59,14 @@ Route::post('/editar-produto/{id}', function(Request $request, $id){
         'estoque' => $request->estoque
     ]);
 
-    echo "Produto EDITADO com sucesso!";
+    echo "Produto editado com sucesso!";
+
 });
 
-Route::get('/editar-produto/{id}', function($id){
-    $prodtuto = Produto::find($id);
-    return view('editar',['produto' => $produto]);
+Route::get('/excluir-produto/{id}',function($id){
+    //dd($request->all());
+    $produto = Produto::find($id);
+    $produto->delete();
+
+    echo "Produto excluido com sucesso!";
 });
