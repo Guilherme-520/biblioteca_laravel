@@ -20,6 +20,7 @@
         <input type="text" name="estoque">
         <br>
         <button>Cadastrar</button>
+        <a href="/menu">Voltar</a>
     </form>
 </body>
 </html>

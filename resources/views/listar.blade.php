@@ -18,5 +18,6 @@
     <label for="lblQuantidade">Quantidade:</label>
     <input type="text" name="estoque" value="{{$produto->estoque}}">
     <br>
+    <a href="/menu">Voltar</a>
 </body>
 </html>

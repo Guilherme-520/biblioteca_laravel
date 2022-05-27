@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use App\Controllers\teste;
 
 Route::get('/', function () {
     return view('inicio');
@@ -69,4 +70,8 @@ Route::get('/excluir-produto/{id}',function($id){
     $produto->delete();
 
     echo "Produto excluido com sucesso!";
+});
+
+Route::post("/verificar-produto", function(){
+    
 });
