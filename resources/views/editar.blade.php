@@ -20,7 +20,7 @@
         <input type="text" name="estoque" value="{{ $produto->estoque }}">
         <br><br>
         <button>editar</button>
-        <a href="/menu">Voltar</a>
+        <a href="/">Voltar</a>
         
         </form>
     </body>

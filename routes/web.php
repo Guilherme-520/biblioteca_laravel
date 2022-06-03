@@ -21,10 +21,7 @@ Route::get('/', function () {
     return view('inicio');
 });
 Route::get('/cadastrar', function () {
-    return view('inicio');
-});
-Route::get('/menu', function () {
-    return view('menu');
+    return view('cadastrar');
 });
 
 Route::post('/cadastrar-produto',function(Request $request){
@@ -36,12 +33,15 @@ Route::post('/cadastrar-produto',function(Request $request){
         'estoque' => $request->estoque
     ]);
     echo "produto criado com sucesso";
+    echo "<br/>";
+    echo "<br/>";
+    echo "<a href='/'>Voltar</>";
 });
 
-Route::get('listar-produto/{id}', function($id){
+/*Route::get('listar-produto/{id}', function($id){
     $produto = Produto::find($id);
     return view('listar', ['produto' => $produto]);
-});
+});*/
 
 Route::get('/editar-produto/{id}', function(Request $request, $id){
     //dd(Produto::find($id)); //debug and die
@@ -61,6 +61,9 @@ Route::post('/editar-produto/{id}', function(Request $request, $id){
     ]);
 
     echo "Produto editado com sucesso!";
+    echo "<br/>";
+    echo "<br/>";
+    echo "<a href='/'>Voltar</>";
 
 });
 
@@ -70,8 +73,16 @@ Route::get('/excluir-produto/{id}',function($id){
     $produto->delete();
 
     echo "Produto excluido com sucesso!";
+    echo "<br/>";
+    echo "<br/>";
+    echo "<a href='/'>Voltar</>";
 });
 
-Route::post("/verificar-produto", function(){
-    
+Route::get("/listar", function(){
+    return view('listar');
+});
+
+Route::post("/listar-produto", function(){
+    $id = $_POST['id'] ;
+    echo $id;
 });

@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Produtos</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Produtos</h1>
-
-    <label for="lblNome">Nome:</label>
-    <input type="text" name="nome" value="{{ $produto->nome}}" >
-    <br>
-    <label for="lblValor">Valor:</label>
-    <input type="text" name="Valor" value="{{$produto->valor}}">
-    <br>
-    <label for="lblQuantidade">Quantidade:</label>
-    <input type="text" name="estoque" value="{{$produto->estoque}}">
-    <br>
-    <a href="/menu">Voltar</a>
+    
+    <form action="/listar-produto" method="post">
+        <label for="id">Insira o id do Produto:</label>
+        <input type="number" name="id" id="id">
+        <button type="submit">Enviar</button>
+        <button><a href="/listar2"></a>Verificar</button><a href="/listar2"></a>
+        <a href="/"></a>
+    </form>
 </body>
 </html>
